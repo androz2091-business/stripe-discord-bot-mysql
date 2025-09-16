@@ -1,4 +1,4 @@
-import { Client, ApplicationCommand, ApplicationCommandData, CommandInteraction, Message, ChatInputApplicationCommandData, ContextMenuCommandInteraction, Collection } from "discord.js";
+import { Client, ApplicationCommand, ApplicationCommandData, CommandInteraction, Message, ChatInputApplicationCommandData, ContextMenuCommandInteraction, Collection, ChatInputCommandInteraction } from "discord.js";
 import { readdirSync } from "fs";
 import { join } from "path";
 
@@ -63,7 +63,7 @@ export const synchronizeSlashCommands = async (client: Client, commands: ChatInp
 };
 
 export interface SlashCommandRunFunction {
-    (interaction: CommandInteraction, commandName: string): void;
+    (interaction: ChatInputCommandInteraction, commandName: string): void;
 }
 
 export interface MessageCommandRunFunction {

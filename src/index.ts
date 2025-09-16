@@ -8,7 +8,7 @@ import { loadContextMenus, loadMessageCommands, loadSlashCommands, synchronizeSl
 
 import { syncSheets } from './integrations/sheets';
 
-import { Client, IntentsBitField, PermissionsBitField } from 'discord.js';
+import { Channel, Client, IntentsBitField, PermissionsBitField } from 'discord.js';
 import { errorEmbed } from './util';
 import { loadTasks } from './handlers/tasks';
 export const client = new Client({
@@ -38,7 +38,7 @@ client.on('interactionCreate', async (interaction) => {
             const run = contextMenus.get(interaction.commandName);
             if (!run) return;
             run(interaction, interaction.commandName);
-        } else {
+        } else if (interaction.isChatInputCommand()) {
             const run = slashCommands.get(interaction.commandName);
             if (!run) return;
             run(interaction, interaction.commandName);

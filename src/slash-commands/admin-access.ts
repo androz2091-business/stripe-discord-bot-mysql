@@ -47,7 +47,7 @@ export const run: SlashCommandRunFunction = async (interaction) => {
     if (!interaction.memberPermissions?.has(PermissionsBitField.Flags.Administrator)) {
         return void interaction.followUp(errorEmbed("This command needs privileged access and can only be used by administrators."));
     }
-
+    
     const subCommand = (interaction.options as CommandInteractionOptionResolver).getSubcommand()!;
     const user = (interaction.options as CommandInteractionOptionResolver).getUser("user")!;
 
