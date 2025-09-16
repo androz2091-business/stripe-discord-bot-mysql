@@ -46,7 +46,7 @@ export class DiscordCustomer extends BaseEntity {
 const entities = [DiscordCustomer];
 
 export const Postgres = new DataSource({
-    type: 'postgres',
+    type: 'mysql',
     host: process.env.DB_HOST,
     database: process.env.DB_NAME,
     username: process.env.DB_USERNAME,
